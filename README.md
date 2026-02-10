@@ -24,6 +24,9 @@ Projekt testowy wykonany w **Unreal Engine 5** demonstrujący system **interakcj
 | Interakcja z obiektem          | E na klawiaturze  |
 | Podniesienie przedmiotu        | E na klawiaturze  |
 
+Podchodzimy do jednej z ścian, nakierowujemy myszką na placeholderową broń, klikamy przycisk E (ustawiamy broń na aktywną)
+Następnie podchodzimy do jednej z skrzynek leżących na podestach i klikamy przycisk E (dostajemy bonus amunicji do broni)
+
 *(Dokładne mapowanie wejścia realizowane przez Enhanced Input)*
 
 ### Główne założenia
