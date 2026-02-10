@@ -38,6 +38,8 @@ void APlayerCharacter::BeginPlay()
 			}
 		}
 	}
+	
+	PlayerInteractionHandler = GetComponentByClass<UPlayerInteractionHandler>();
 }
 
 // Called every frame
@@ -62,43 +64,14 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	EIC->BindAction(LookAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Look);
 	EIC->BindAction(JumpAction, ETriggerEvent::Started, this, &APlayerCharacter::Jump);
 	EIC->BindAction(JumpAction, ETriggerEvent::Completed, this, &APlayerCharacter::StopJumping);
-	
-	/*
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &APlayerCharacter::StartJump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &APlayerCharacter::StopJump);
-	
-	PlayerInputComponent->BindAxis("MoveForward", this, &APlayerCharacter::MoveForward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &APlayerCharacter::MoveRight);
-	
-	PlayerInputComponent->BindAxis("Turn", this, &APlayerCharacter::Turn);
-	PlayerInputComponent->BindAxis("LookUp", this, &APlayerCharacter::LookUp);
-	*/
+	EIC->BindAction(InteractAction, ETriggerEvent::Started, this, &APlayerCharacter::Interact);
 }
-
-/*
-void APlayerCharacter::MoveRight(float Value)
-{
-	GEngine->AddOnScreenDebugMessage(-1 , 2.f , FColor::Red ,
-		FString::Printf(TEXT("Moving Left/Right with Value: %f"), Value));
-	
-	if (Controller && Value != 0)
-	{
-		const FRotator Rotation = Controller->GetControlRotation();
-		const FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
-
-		const FVector Direction =
-			FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
-
-		AddMovementInput(Direction, Value);
-	}
-}
-*/
 
 void APlayerCharacter::Move(const FInputActionValue& Value)
 {
 	FString valueStringed = Value.Get<FVector2D>().ToString();
-	GEngine->AddOnScreenDebugMessage(-1 , 2.f , FColor::Red ,
-	FString::Printf(TEXT("Moving Back/Forward with Value: %s") ,*valueStringed ));
+	//GEngine->AddOnScreenDebugMessage(-1 , 2.f , FColor::Red ,
+	//FString::Printf(TEXT("Moving Back/Forward with Value: %s") ,*valueStringed ));
 	
 	const FVector2D Axis = Value.Get<FVector2D>();
 
@@ -113,20 +86,11 @@ void APlayerCharacter::Move(const FInputActionValue& Value)
 	}
 }
 
-/*
-void APlayerCharacter::Turn(float Value)
-{
-	GEngine->AddOnScreenDebugMessage(-1 , 2.f , FColor::Red ,
-FString::Printf(TEXT("Turning with Value: %f" ), Value));
-	AddControllerYawInput(Value);
-}
-*/
-
 void APlayerCharacter::Look(const FInputActionValue&  Value)
 {
 	FString valueStringed = Value.Get<FVector2D>().ToString();
-	GEngine->AddOnScreenDebugMessage(-1 , 2.f , FColor::Red ,
-FString::Printf(TEXT("Looking with Value: %s" ), *valueStringed));
+	//GEngine->AddOnScreenDebugMessage(-1 , 2.f , FColor::Red ,
+	//FString::Printf(TEXT("Looking with Value: %s" ), *valueStringed));
 	
 	const FVector2D Axis = Value.Get<FVector2D>();
 
@@ -134,12 +98,8 @@ FString::Printf(TEXT("Looking with Value: %s" ), *valueStringed));
 	AddControllerYawInput(Axis.X);
 }
 
-void APlayerCharacter::StartJump()
+void APlayerCharacter::Interact(const FInputActionValue& Value)
 {
-	
+	PlayerInteractionHandler->InvokePlayerInteractedAction();
 }
 
-void APlayerCharacter::StopJump()
-{
-	
-}

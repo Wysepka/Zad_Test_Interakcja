@@ -10,7 +10,8 @@ public class Actors : ModuleRules
             new string[]
             {
                 "Core",
-                "EnhancedInput",
+                "EnhancedInput", 
+                "CoreRuntime",
             }
         );
 
@@ -20,7 +21,8 @@ public class Actors : ModuleRules
                 "CoreUObject",
                 "Engine",
                 "Slate",
-                "SlateCore"
+                "SlateCore",
+                //"CoreRuntime",
             }
         );
     }

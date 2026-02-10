@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
+#include "PlayerInteractionHandler.h"
 #include "PlayerCharacter.generated.h"
 
 
@@ -37,8 +38,7 @@ private:
 	//void Turn(float Value);
 	void Look(const FInputActionValue&  Value);
 	
-	void StartJump();
-	void StopJump();
+	void Interact(const FInputActionValue&  Value);
 	
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	TObjectPtr<UInputMappingContext> DefaultMappingContext;
@@ -51,4 +51,9 @@ private:
 	
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	TObjectPtr<UInputAction> LookAction;
+	
+	UPROPERTY(EditDefaultsOnly, Category="Input")
+	TObjectPtr<UInputAction> InteractAction;
+	
+	TObjectPtr<UPlayerInteractionHandler> PlayerInteractionHandler;
 };

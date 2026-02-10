@@ -10,6 +10,7 @@ public class UIRuntime : ModuleRules
             new string[]
             {
                 "Core",
+                "UMG"
             }
         );
 
@@ -19,7 +20,8 @@ public class UIRuntime : ModuleRules
                 "CoreUObject",
                 "Engine",
                 "Slate",
-                "SlateCore"
+                "SlateCore", 
+                "CoreRuntime"
             }
         );
     }

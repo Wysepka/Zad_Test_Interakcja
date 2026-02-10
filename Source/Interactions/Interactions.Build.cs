@@ -10,6 +10,7 @@ public class Interactions : ModuleRules
             new string[]
             {
                 "Core",
+                "CoreRuntime"
             }
         );
 

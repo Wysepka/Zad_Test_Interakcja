@@ -16,6 +16,6 @@ public class Zad_Test_InterakcjaEditorTarget : TargetRules
 
 	private void RegisterModulesCreatedByRider()
 	{
-		ExtraModuleNames.AddRange(new string[] { "Actors", "Interactions", "UIRuntime" });
+		ExtraModuleNames.AddRange(new string[] { "Actors", "Interactions", "UIRuntime", "CoreRuntime" });
 	}
 }
