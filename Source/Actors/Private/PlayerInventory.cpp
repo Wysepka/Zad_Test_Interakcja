@@ -97,7 +97,7 @@ void UPlayerInventory::Interact(TScriptInterface<UIPickable> Pickable)
 			InventorySlots[PickableID]->CurrentAmmo += AmmountToAdd;
 		}
 		
-		if (CurrentInventorySlot->PickableID ==  PickableID)
+		if (CurrentInventorySlot != nullptr && CurrentInventorySlot->PickableID ==  PickableID)
 		{
 			GetMessagingBus()->BroadcastOnAmmoChanged(CurrentInventorySlot->CurrentAmmo , CurrentInventorySlot->MaxAmmo);
 		}
