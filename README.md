@@ -55,5 +55,6 @@ w Blueprintach zaimplementowana logika uruchamiająca i wykonująca
 - Sterowanie Gracza
 ### Blueprints
 - UI Interakcji i panelu bronii
+- Aplikowanie wartości zmiennych do widoków UI
 - Logika uruchamiająca / decydująca interakcje z obiektami
 - Blueprinty Pick-upów i ich ustawienie wartości
