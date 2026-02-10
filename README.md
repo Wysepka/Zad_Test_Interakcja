@@ -48,6 +48,7 @@ w Blueprintach zaimplementowana logika uruchamiająca i wykonująca
 - Brak możliwości "strzelania" z bronii
 - UI Interakcji nie dostosowuje się do rozmiaru tekstu
 - Brak potwierdzenia interakcji z bronią / amunicją
+- Brak możliwości pozyskania amunicji bez wcześniejszego "podniesienia" broni
 
 ## Wykonana Praca
 
